@@ -1,0 +1,500 @@
+From fc836bafc127f9889740537fb758394ad15f36f7 Mon Sep 17 00:00:00 2001
+From: 20IT121 <20IT121@charusat.edu.in>
+Date: Mon, 5 Feb 2024 16:24:01 +0530
+Subject: [PATCH] Temperature Component Modified
+
+	- Auto room temperature system implemented
+	- Increase and decrease in temperature implemented
+---
+ main.cpp                       |   7 --
+ main.qml                       | 117 ++++++++++++++++++++++
+ system.cpp                     |   8 --
+ system.h                       |   5 +-
+ ui/Temperature/Temperature.qml | 173 +++++++++++++++++++++++++++++++++
+ ui/assets/downward-arrow.png   | Bin 0 -> 400 bytes
+ ui/assets/heatwave.png         | Bin 0 -> 3287 bytes
+ ui/assets/upward-arrow.png     | Bin 0 -> 392 bytes
+ 8 files changed, 291 insertions(+), 19 deletions(-)
+ create mode 100644 main.qml
+ create mode 100644 ui/Temperature/Temperature.qml
+ create mode 100644 ui/assets/downward-arrow.png
+ create mode 100644 ui/assets/heatwave.png
+ create mode 100644 ui/assets/upward-arrow.png
+
+diff --git a/main.cpp b/main.cpp
+index 16a3659..35f5f0a 100644
+--- a/main.cpp
++++ b/main.cpp
+@@ -23,13 +23,6 @@ int main(int argc, char *argv[])
+     if(engine.rootObjects().isEmpty())
+         return -1;
+ 
+-    QQuickWindow *wnd1 = engine.rootObjects()[0]->findChild<QQuickWindow *>("wnd1");
+-    if(wnd1)
+-        wnd1->setTitle("Server");
+-    QQuickWindow *wnd2 = engine.rootObjects()[0]->findChild<QQuickWindow *>("wnd2");
+-    if(wnd2)
+-        wnd2->setTitle("Client");
+-
+     const QUrl url(QStringLiteral("qrc:/main.qml"));
+     QObject::connect(
+         &engine,
+diff --git a/main.qml b/main.qml
+new file mode 100644
+index 0000000..3536f31
+--- /dev/null
++++ b/main.qml
+@@ -0,0 +1,117 @@
++import QtQuick 2.15
++import QtQuick.Controls
++import QtQuick.Window 2.15
++import "ui/TopNavbar"
++import "ui/SideNavbar"
++import "ui/Notification"
++import "ui/QuickPanel"
++import "ui/Suggestion"
++import "ui/Weather"
++import "ui/Temperature"
++import "ui/Wifi"
++import "ui/Electricity"
++
++Window {
++
++    id: mainWindow
++    property color checkedColor: "#23446b"
++
++    width: 1920
++    height: 1080
++    visible: true
++    title: qsTr("Homemade Automation - Dashboard")
++    color: root.checked ? "#7e7e7e" : "#D3D3D3"
++
++    TopNavbar{
++        id: topNavbar
++        color: root.checked ? "#D3D3D3" : "white"
++        Switch {
++            id: root
++            anchors{
++                horizontalCenter: topNavbar.horizontalCenter
++                verticalCenter: topNavbar.verticalCenter
++            }
++            hoverEnabled: true
++
++            indicator: Rectangle {
++
++                width: 248
++                height: 24
++                radius: height / 2
++                color: root.checked ? checkedColor : "#AAB7C6"
++                border.width: 2
++                border.color: "#D5D5D5"
++
++                Rectangle {
++                    id: randomID
++                    x: root.checked ? parent.width - width - 2 : 1
++                    width: parent.width/2
++                    height: parent.height
++                    radius: height / 2
++                    anchors.verticalCenter: parent.verticalCenter
++                    color: "white"
++                    border.color: "#D5D5D5"
++
++
++                    Behavior on x {
++                        NumberAnimation { duration: 200 }
++                    }
++                }
++            }
++
++            Text{
++                id: lightmodeText
++                text: "Light"
++                anchors{
++                    right: root.right
++                    rightMargin: root.width/4
++                }
++                font.pixelSize: 15
++                color: root.checked ? "white" : "#23446b"
++            }
++
++            Text{
++                id: darkmodeText
++                text: "Dark"
++                anchors{
++                    left: root.left
++                    leftMargin: root.width/4
++                }
++                font.pixelSize: 15
++                color: root.checked ? "#D3D3D3" : "white"
++            }
++       }
++    }
++
++    SideNavbar{
++        id: sideNavbar
++    }
++
++    Notification{
++        id: notification
++    }
++
++    QuickPanel{
++        id: quickpanel
++    }
++
++    Suggestion{
++        id : suggestion
++    }
++
++    Weather{
++        id: weather
++    }
++
++    Temperature{
++        id: temperature
++    }
++
++    Wifi{
++        id: wifi
++    }
++
++    Electricity{
++        id: electricity
++    }
++}
+diff --git a/system.cpp b/system.cpp
+index 80d6011..57b317b 100644
+--- a/system.cpp
++++ b/system.cpp
+@@ -82,11 +82,3 @@ void System::setcurrentTemp(int newCurrentTemp)
+     m_currentTemp = newCurrentTemp;
+     emit currentTempChanged();
+ }
+-
+-void System::showMusicDialog(bool status){
+-    // QDialog::musicWindow = new MusicDialog();
+-    // if(status)
+-    //     ui->musicWindow->hide();
+-    // else
+-    //     ui->musicWindow->hide();
+-}
+diff --git a/system.h b/system.h
+index cee5c52..9a756e4 100644
+--- a/system.h
++++ b/system.h
+@@ -4,7 +4,6 @@
+ #include <QObject>
+ #include <QString>
+ #include <QTimer>
+-#include "musicdialog.h"
+ 
+ class System : public QObject
+ {
+@@ -35,9 +34,7 @@ public slots:
+ 
+ signals:
+     void currentTimeChanged();
+-
+     void currentDateChanged();
+-
+     void currentTempChanged();
+ 
+ private:
+@@ -45,7 +42,7 @@ private:
+     QString m_currentTime;
+     QString m_currentDate;
+     int m_currentTemp;
+-    // MusicDialog *musicWindow;
++    // Qtimer
+ };
+ 
+ 
+diff --git a/ui/Temperature/Temperature.qml b/ui/Temperature/Temperature.qml
+new file mode 100644
+index 0000000..cc3fad6
+--- /dev/null
++++ b/ui/Temperature/Temperature.qml
+@@ -0,0 +1,173 @@
++import QtQuick 2.15
++import QtQuick.Controls 2.15
++
++Rectangle{
++    id: temperature
++    property bool hover : false
++    property var temperatureController
++
++    radius: 10
++    color: "white"
++    anchors{
++        right: notification.left
++        top: topNavbar.bottom
++        rightMargin: 45
++        topMargin: 50
++    }
++    height: parent.height * 1/5
++    width: parent.width * 1/4.5
++
++    Text {
++        id: temperatureText
++        text: "Temperature"
++        color: "#23446b"
++        font.bold: true
++        font.pixelSize: 15
++        anchors.left : parent.left
++        anchors.top: parent.top
++        anchors.leftMargin: 20
++        anchors.topMargin: 20
++    }
++
++    Image{
++        id: frostImage
++        anchors{
++            top: temperatureText.bottom
++            left: parent.left
++            topMargin: 20
++            leftMargin: 30
++        }
++        fillMode: Image.PreserveAspectFit
++        width: parent.width * 1/5
++        source: systemHandler.highTemperature() ? "qrc:/ui/assets/heatwave.png" : "qrc:/ui/assets/frost.png"
++    }
++
++    Text{
++        id: currentTemperature
++        anchors.bottom: frostImage.bottom
++        anchors.left: frostImage.right
++        anchors.leftMargin: 20
++
++        text: systemHandler.currentTemp + "° C"
++        font.pixelSize: 50
++        color: systemHandler.highTemperature() ? "#fe2d2d" : "#a3b5b2"
++    }
++
++    Timer {
++        id: hoverTimer
++        interval: 250 // Adjust the delay time in milliseconds
++        repeat: false
++        onTriggered: {
++            parent.scale = hover ? 1.2 : 1.0
++            color = "#efefef"
++        }
++    }
++
++    MouseArea{
++        id: temperatureMousearea
++        hoverEnabled: true
++        anchors.fill: parent
++        onEntered: {
++            hover = true
++            hoverTimer.start()
++        }
++        onExited: {
++            hover = false
++            hoverTimer.stop()
++            parent.scale =  1.0
++            color = "white"
++        }
++    }
++
++    Image {
++        id: upwardArrow
++        anchors{
++            right: parent.right
++            top: currentTemperature.top
++            rightMargin: 30
++        }
++        fillMode: Image.PreserveAspectFit
++        source: "qrc:/ui/assets/upward-arrow.png"
++
++        MouseArea{
++            anchors.fill: parent
++            onClicked: {
++                root.checked ? systemHandler.incrementTemperature(0) : systemHandler.incrementTemperature(1)
++                currentTemperature.color = systemHandler.highTemperature() ? "#fe2d2d" : "#a3b5b2"
++                frostImage.source = systemHandler.highTemperature() ? "qrc:/ui/assets/heatwave.png" : "qrc:/ui/assets/frost.png"
++            }
++        }
++    }
++
++    Image {
++        id: downwardArrow
++        anchors{
++            right: parent.right
++            bottom: currentTemperature.bottom
++            rightMargin: 30
++        }
++        fillMode: Image.PreserveAspectFit
++        source: "qrc:/ui/assets/downward-arrow.png"
++
++        MouseArea{
++            anchors.fill: parent
++            onClicked: {
++                root.checked ? systemHandler.incrementTemperature(0) : systemHandler.incrementTemperature(-1)
++                currentTemperature.color = systemHandler.highTemperature() ? "#fe2d2d" : "#a3b5b2"
++                frostImage.source = systemHandler.highTemperature() ? "qrc:/ui/assets/heatwave.png" : "qrc:/ui/assets/frost.png"
++            }
++        }
++    }
++
++ // Auto Room temperature component
++    Text{
++        id: autoRoomTemperature
++        property color checkedColor : "#23446b"
++        color: "#657C97"
++        text: "Auto Room Temperature System"
++        anchors.top: frostImage.bottom
++        anchors.left: parent.left
++        anchors.leftMargin: 30
++        anchors.topMargin: 10
++        font.pixelSize: 13
++
++        Switch {
++            id: root
++            anchors{
++                bottom: autoRoomTemperature.bottom
++                left: autoRoomTemperature.right
++                bottomMargin: -10
++                leftMargin: 30
++            }
++
++            hoverEnabled: true
++            indicator: Rectangle {
++
++
++                width: 38
++                height: 20
++                radius: height / 2
++                color: root.checked ? checkedColor : "#AAB7C6"
++                border.width: 2
++                border.color: root.checked ? checkedColor : "#E5E5E5"
++
++
++                Rectangle {
++
++                    x: root.checked ? parent.width - width - 2 : 1
++                    width: root.checked ? parent.height - 4 : parent.height - 2
++                    height: width
++                    radius: width / 2
++                    anchors.verticalCenter: parent.verticalCenter
++                    color: "white"
++                    border.color: "#D5D5D5"
++
++
++                    Behavior on x {
++                        NumberAnimation { duration: 200 }
++                    }
++                }
++            }
++        }
++    }
++}
+diff --git a/ui/assets/downward-arrow.png b/ui/assets/downward-arrow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4ecb0a3c9faa710838a64a4c8959ac175385e30c
+GIT binary patch
+literal 400
+zcmV;B0dM|^P)<h;3K|Lk000e1NJLTq000;O000;W1^@s6;CDUv00004b3#c}2nYxW
+zd<bNS00009a7bBm000ie000ie0hKEb8vp<R8FWQhbW?9;ba!ELWdL_~cP?peYja~^
+zaAhuUa%Y?FJQ@H10S!q+K~zYI?U6rA!%!4Q&%JeXbP@M9nM{jIOR|U(uqxu<_j2-k
+zxQJ5`Y@s4*6qHE6fr4o99}e%iSST@xsR}yeZ1>*ZJD1CYl9GRqj2FGLcteo(PlOh`
+z=QrHlQ9U(2tYEGTl^tO2oBkU$x;@^IWTJZ>J8I<s%j|^mTO+y{)T@`d3jq2j@w`##
+z05b*U_oBMg@~WrFfu^OK3+{zQmVvth@&^lHnmls>fZwP^qS6M2Ir1l?tose;I4h93
+z0HEd7j=-z{kDsUZ8LO*-=N#raQvV=HKe`T#WgnRSXuVjqYrf}pzIvN`!H8zv=_;~`
+u@Cv+HWUGjLVtUaa>_vm{*Tp3zf6F`c8c0$N`}86J0000<MNUMnLSTZ07^&g_
+
+literal 0
+HcmV?d00001
+
+diff --git a/ui/assets/heatwave.png b/ui/assets/heatwave.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d7eed930c5ce156e45e773868ae7f52daa165838
+GIT binary patch
+literal 3287
+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
+ViWk?UIdA{~002ovPDHLkV1iU?XX^j}
+
+literal 0
+HcmV?d00001
+
+diff --git a/ui/assets/upward-arrow.png b/ui/assets/upward-arrow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..290f757aaa0a7e8086a4841b316cb379fa16c0da
+GIT binary patch
+literal 392
+zcmeAS@N?(olHy`uVBq!ia0vp^5+KaM1|%Pp+x`GjEX7WqAsj$Z!;#Vf<Z~8yL>4nJ
+z@ErkR#;MwT(m+AU64!{5;QX|b^2DN4hVt@qz0ADq;^f4FRK5J7^x5xhq!<_&Sv_4G
+zLp(a)PTcQ(I6$Oz|MyqRG%Px+eF`^h<x86F*dFxf<MA$wjKGx{mm54LIR-zjUl7b*
+z`YD!OH^k@bQaz=g$EwfSKDUz-5&5J4M<erR;H6WW7w7gm&M<R)ul#F)^s?RCs!wUz
+z?E2hOz~WQi6X$X|ZgG&^@6twjwbBd651dJNoj384-`;0){9`V3UoJJg#FlnEVqQ<$
+z?bSQPcXIDaj0!!WY4HE9-~opPHzP{dZ#r_upKsl7Z7$1=9PBfKFT6YYeXGvL)7*NG
+z_pNp<6%f-o<X&mwm0ub9JT1pj;GR`m5PQTKNxLVGl3RCf+%|=WJ$Uge?W)Lw4_h9-
+k*LciuvVUJw)BeNKS5tleh{kDc2ZkDhr>mdKI;Vst0QDN8a{vGU
+
+literal 0
+HcmV?d00001
+
+-- 
+2.34.1.windows.1
+
