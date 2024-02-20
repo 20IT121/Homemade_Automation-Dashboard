@@ -1,6 +1,7 @@
 #include "system.h"
 #include <QDateTime>
 #include <QDebug>
+#include <QTimer>
 
 #include <QFile>
 #include <QTextStream>
@@ -11,14 +12,28 @@ System::System(QObject *parent) :
     m_currentTemp (37),
     m_roomTemp(12)
 {
+    // timer = new QTimer(this);
+    connect( &workerThread , SIGNAL(started()) , this , SLOT(started()));
+    connect (&timer , SIGNAL(timeout()), this,  SLOT(timeout()));
+    // timer->start();
+
+    timer->setInterval(30000);
+    timer->moveToThread(workerThread);
+
+    workerThread.start();
+
     getcurrentTime();
     getcurrentDate();
     fetchroomTemp();
 }
 
+void System::started(){
+    timer->start();
+}
+
 void System::getcurrentTime(){
     QTime time = QTime::currentTime();
-    QString time_text = time.toString("hh:mm");
+    QString time_text = time.toString("hh:mm:ss");
     setcurrentTime(time_text);
 }
 

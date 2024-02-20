@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     System *m_systemHandler = new System();
-    WifiManager *m_wifimanagerHandler = new WifiManager();
+    // WifiManager *m_wifimanagerHandler = new WifiManager();
 
 
     QGuiApplication app(argc, argv);
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
  // custom code for displaying current time
     engine.rootContext()->setContextProperty("systemHandler",m_systemHandler);
-    engine.rootContext()->setProperty("wifiHandler",QVariant::fromValue(m_wifimanagerHandler));
+    // engine.rootContext()->setProperty("wifiHandler",QVariant::fromValue(m_wifimanagerHandler));
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if(engine.rootObjects().isEmpty())

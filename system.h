@@ -47,8 +47,10 @@ private:
     QString m_currentTime;
     QString m_currentDate;
     int m_currentTemp;
-    // Qtimer
     int m_roomTemp;
+
+    QTimer timer;
+    QThread workerThread;
 };
 
 

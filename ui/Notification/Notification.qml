@@ -29,7 +29,7 @@ Rectangle{
 
     Text{
         id: notification1
-        text: wifiHandler.get_Available_Wifi_Networks()
+        // text: wifiHandler.get_Available_Wifi_Networks()
         font.pixelSize: 12
         color: "#23446b"
         anchors{

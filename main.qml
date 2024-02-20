@@ -22,8 +22,8 @@ Window {
     height: 768
     // minimumHeight: 768
     // minimumWidth: 1360
-    // maximumHeight: 1080
-    // maximumWidth: 1920
+    maximumHeight: 1080
+    maximumWidth: 1920
     visible: true
     flags: Qt.Window | Qt.FramelessWindowHint
     title: qsTr("Homemade Automation - Dashboard")
