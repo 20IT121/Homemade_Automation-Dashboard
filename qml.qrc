@@ -97,5 +97,6 @@
         <file>ui/pages/DevicePage.qml</file>
         <file>ui/pages/LightsPage.qml</file>
         <file>data/temperature.txt.txt</file>
+        <file>ui/pages/TemperaturePage.qml</file>
     </qresource>
 </RCC>

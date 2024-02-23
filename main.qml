@@ -18,14 +18,14 @@ Window {
     id: mainWindow
     property color checkedColor: "#23446b"
 
-    width: 1380
-    height: 768
-    // minimumHeight: 768
-    // minimumWidth: 1360
-    maximumHeight: 1080
-    maximumWidth: 1920
+    width: 1920
+    height: 1080
+    minimumHeight: 768
+    minimumWidth: 1360
+    // maximumHeight: 1080
+    // maximumWidth: 1920
     visible: true
-    flags: Qt.Window | Qt.FramelessWindowHint
+
     title: qsTr("Homemade Automation - Dashboard")
     color: root.checked ? "#7e7e7e" : "#D3D3D3"
 

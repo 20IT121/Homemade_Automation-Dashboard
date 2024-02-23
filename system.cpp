@@ -13,27 +13,27 @@ System::System(QObject *parent) :
     m_roomTemp(12)
 {
     // timer = new QTimer(this);
-    connect( &workerThread , SIGNAL(started()) , this , SLOT(started()));
-    connect (&timer , SIGNAL(timeout()), this,  SLOT(timeout()));
+    // connect( &workerThread , SIGNAL(started()) , this , SLOT(started()));
+    // connect (&timer , SIGNAL(timeout()), this,  SLOT(timeout()));
     // timer->start();
 
-    timer->setInterval(30000);
-    timer->moveToThread(workerThread);
+    // timer->setInterval(30000);
+    // timer->moveToThread(workerThread);
 
-    workerThread.start();
+    // workerThread.start();
 
     getcurrentTime();
     getcurrentDate();
     fetchroomTemp();
 }
 
-void System::started(){
-    timer->start();
-}
+// void System::started(){
+//     timer->start();
+// }
 
 void System::getcurrentTime(){
     QTime time = QTime::currentTime();
-    QString time_text = time.toString("hh:mm:ss");
+    QString time_text = time.toString("hh:mm");
     setcurrentTime(time_text);
 }
 

@@ -49,8 +49,8 @@ private:
     int m_currentTemp;
     int m_roomTemp;
 
-    QTimer timer;
-    QThread workerThread;
+    // QTimer timer;
+    // QThread workerThread;
 };
 
 
