@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtQuick.Layouts
+import QtQuick.Layouts 1.0
 
 Rectangle{
     id: weather
@@ -92,4 +92,6 @@ Rectangle{
             color = "white"
         }
     }
+
+    opacity: 0.9
 }

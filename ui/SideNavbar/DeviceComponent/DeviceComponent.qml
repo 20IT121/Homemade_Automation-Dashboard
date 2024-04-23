@@ -1,6 +1,6 @@
 import QtQuick 2.15
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.0
 
 Rectangle{
     id: deviceComponent
@@ -22,7 +22,7 @@ Rectangle{
         }
         height: parent.height * 0.40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/ui/assets/devicesIcon.png"
+        source: "qrc:/ui/assets/devicesIcon_w.png"
     }
 
     Text{
@@ -34,7 +34,8 @@ Rectangle{
             verticalCenter: parent.verticalCenter
         }
         font.pixelSize: parent.width/20
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
     }
 
     MouseArea{
@@ -46,15 +47,15 @@ Rectangle{
             loader.setSource(Qt.resolvedUrl("../../pages/DevicePage.qml"))
         }
 
-        onEntered: {
-            deviceText.color = "white"
-            deviceImage.source = "qrc:/ui/assets/devicesIcon_w.png"
-            parent.color = "#23446b"
-        }
-        onExited: {
-            deviceText.color = "#23446b"
-            deviceImage.source = "qrc:/ui/assets/devicesIcon.png"
-            parent.color = "#D3D3D3"
-        }
+        // onEntered: {
+        //     deviceText.color = "white"
+        //     deviceImage.source = "qrc:/ui/assets/devicesIcon_w.png"
+        //     parent.color = "#23446b"
+        // }
+        // onExited: {
+        //     deviceText.color = "#23446b"
+        //     deviceImage.source = "qrc:/ui/assets/devicesIcon.png"
+        //     parent.color = "#D3D3D3"
+        // }
     }
 }

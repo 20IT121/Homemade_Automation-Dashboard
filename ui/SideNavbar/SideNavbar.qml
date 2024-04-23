@@ -17,7 +17,12 @@ Rectangle{
         bottom: parent.bottom
         left: parent.left
     }
-    width: parent.width * 0.25
+    width: parent.width * 0.2
+    color: "#D3D3D3"
+    Image {
+        source: "qrc:/ui/assets/grey_blur.jpg"
+        anchors.fill: parent
+    }
     // radius: 10
 
     Text{
@@ -28,13 +33,14 @@ Rectangle{
             right: parent.right
 
             topMargin:  55
-            leftMargin: 55
-            rightMargin: 55
+            leftMargin: 40
+            rightMargin: 70
 
         }
         text: systemHandler.currentTime
         font.pixelSize: 90
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
         font.bold: true
     }
 
@@ -46,49 +52,50 @@ Rectangle{
             horizontalCenter: parent.horizontalCenter
         }
         text: systemHandler.currentDate
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
         font.pixelSize: 15
     }
 
     DashBoardComponent{
         id: dashboardComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
 
     DeviceComponent{
         id: deviceComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
 
     LightComponent{
         id: lightComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
 
     TemperatureComponent{
         id: temperatureComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
 
     ElectricityComponent{
         id: electricityComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
     WaterComponent{
         id: waterComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
     WifiComponent{
         id: wifiComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
     SecurityComponent{
         id: securityComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
     SettingsComponent{
         id: settingsComponent
-        color: "#D3D3D3"
+        color: "transparent"
     }
 
     // color: "orange"

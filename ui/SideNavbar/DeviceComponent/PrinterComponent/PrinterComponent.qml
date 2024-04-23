@@ -1,14 +1,14 @@
 import QtQuick 2.15
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick.Controls 1.0
+import QtQuick.Layouts 1.0
 
 
 Rectangle{
     property string checkedColor : "#e2c8b6"
 
     id: printercomponent
-    Layout.fillHeight: true
-    Layout.fillWidth: true
+    width: 200
+    height: 200
 
     radius: 25
     color: root1.checked ? "#b6e2c8" : "#908b8b"

@@ -1,5 +1,7 @@
 import QtQuick 2.15
-import QtQuick.Layouts
+import QtQuick.Layouts 2.15
+import QtWebChannel 1.0
+// import QtGraphicalEffects 2.15
 import "../SideNavbar/WaterComponent/Netflix"
 import "../SideNavbar/WaterComponent/Hotstar"
 import "../SideNavbar/WaterComponent/Prime"
@@ -9,17 +11,19 @@ import "../SideNavbar/WaterComponent/Aaonxt"
 
 Item {
     Rectangle{
+
         id: ottplatformPage
 
         implicitHeight: mainWindow.height * 11/12
-        implicitWidth: mainWindow.width * 3/4
+        implicitWidth: mainWindow.width * 4/5
 
         color: "#D3D3D3"
 
         Image {
             id: bgImage
             source: "qrc:/ui/assets/netflix_BG.webp"
-            anchors.fill: parent
+            // anchors.fill: parent
+            fillMode: Image.PreserveAspectFit
         }
 
         Text {

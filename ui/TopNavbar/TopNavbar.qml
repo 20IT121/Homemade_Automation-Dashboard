@@ -8,7 +8,7 @@ Rectangle{
     }
     // radius: 10
     height: parent.height / 12
-    width: parent.width * 3/4
+    width: maincontent.width
 
     DragHandler{
         onActiveChanged: if(active){
@@ -21,12 +21,13 @@ Rectangle{
         anchors{
             left: parent.left
             verticalCenter: parent.verticalCenter
-            leftMargin: topNavbar.width * 1/25
+            leftMargin: 50
         }
         font.pixelSize: topNavbar.height * 1/4
         font.bold: true
         text: "MetaHome"
-        color: "#274C77"
+        // color: "#274C77"
+        color: "white"
     }
 
     // Text{
@@ -59,11 +60,12 @@ Rectangle{
         anchors{
         left: textNavbar.right
         bottom: textNavbar.bottom
-        leftMargin: topNavbar.width * 1/25
+        leftMargin: 70
     }
         font.pixelSize: topNavbar.height * 1/4
         font.bold: true
-        color: "#274C77"
+        // color: "#274C77"
+        color: "white"
         text: "Customize Dashboard"
     }
 
@@ -76,7 +78,8 @@ Rectangle{
         }
         font.pixelSize: parent.height * 1/4
         font.bold: true
-        color: "#274C77"
+        // color: "#274C77"
+        color: "white"
         text: "Hello"
     }
 
@@ -118,12 +121,12 @@ Rectangle{
         MouseArea{
             hoverEnabled: true
             anchors.fill: signOutImage
-            onEntered:{
-                signOutImage.scale = 1.1
-            }
-            onExited:{
-                signOutImage.scale = 1.0
-            }
+            // onEntered:{
+            //     signOutImage.scale = 1.1
+            // }
+            // onExited:{
+            //     signOutImage.scale = 1.0
+            // }
 
             onClicked: {
                 Qt.quit();

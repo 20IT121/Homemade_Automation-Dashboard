@@ -5,8 +5,8 @@ Rectangle{
     anchors{
         right: parent.right
         rightMargin: 25
-        top: parent.top
-        topMargin: 35
+        top: topNavbar.bottom
+        topMargin: 45
     }
     color: "white"
     width: 250

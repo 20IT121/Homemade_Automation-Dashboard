@@ -1,23 +1,11 @@
 import QtQuick 2.15
-import QtQuick.Controls
+import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
-import QtQuick.Layouts
-import "ui/TopNavbar"
-import "ui/SideNavbar"
-import "ui/Notification"
-import "ui/QuickPanel"
-import "ui/Suggestion"
-import "ui/Weather"
-import "ui/Temperature"
-import "ui/Wifi"
-import "ui/Electricity"
-import "ui/pages"
+import QtQuick.Layouts 1.0
+import "ui/SideNavbar" 1.0
 
 Window {
-
     id: mainWindow
-    property color checkedColor: "#23446b"
-
     width: 1920
     height: 1080
     minimumHeight: 768
@@ -27,93 +15,22 @@ Window {
     visible: true
 
     title: qsTr("Homemade Automation - Dashboard")
-    color: root.checked ? "#7e7e7e" : "#D3D3D3"
+    // color: root.checked ? "#7e7e7e" : "#D3D3D3"
+    color: "transparent"
 
     SideNavbar{
         id: sideNavbar
-        color: "#D3D3D3"
-    }
-
-    TopNavbar{
-        id: topNavbar
-        color: "#D3D3D3"
-
-        Switch {
-            id: root
-            anchors{
-                horizontalCenter: topNavbar.horizontalCenter
-                verticalCenter: topNavbar.verticalCenter
-            }
-            hoverEnabled: true
-
-            indicator: Rectangle {
-
-                width: 248
-                height: 24
-                radius: height / 2
-                color: root.checked ? checkedColor : "#AAB7C6"
-                border.width: 2
-                border.color: "#D5D5D5"
-
-                Rectangle {
-                    id: randomID
-                    x: root.checked ? parent.width - width - 2 : 1
-                    width: parent.width/2
-                    height: parent.height
-                    radius: height / 2
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: "white"
-                    border.color: "#D5D5D5"
-
-
-                    Behavior on x {
-                        NumberAnimation { duration: 200 }
-                    }
-                }
-            }
-
-            Text{
-                id: lightmodeText
-                text: "Light"
-                anchors{
-                    right: root.right
-                    rightMargin: root.width/4
-                }
-                font.pixelSize: 15
-                color: root.checked ? "white" : "#23446b"
-            }
-
-            Text{
-                id: darkmodeText
-                text: "Dark"
-                anchors{
-                    left: root.left
-                    leftMargin: root.width/4
-                }
-                font.pixelSize: 15
-                color: root.checked ? "#D3D3D3" : "white"
-            }
-       }
     }
 
     Rectangle{
         id: contentPages
-        implicitHeight: mainWindow.height * 11/12
-        implicitWidth: mainWindow.width * 3/4
+        // implicitHeight: mainWindow.height * 11/12
+        // implicitWidth: mainWindow.width * 3/4
         anchors.left: sideNavbar.right
-        anchors.top: topNavbar.bottom
+        anchors.top: parent.top
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        color: "#000000"
-
-        // StackView{
-        //     id: stackView
-        //     anchors.fill: parent
-        //     // anchors.left: sideNavbar.right
-        //     // anchors.top: topNavbar.bottom
-
-        //     initialItem: Qt.resolvedUrl(":/ui/pages/MainContent.qml")
-        // }
+        color: "transparent"
 
         Loader{
             id: loader
@@ -121,5 +38,38 @@ Window {
             source: Qt.resolvedUrl("qrc:/ui/pages/MainContent.qml")
         }
     }
+
+    // StackView{
+    //     id: stackView
+    //     anchors.fill: parent
+    //     anchors.left: sideNavbar.right
+    //     anchors.top: topNavbar.bottom
+
+    //     initialItem: Qt.resolvedUrl(":/ui/pages/MainContent.qml")
+    // }
+
+
+    // ChartView {
+    //     id: chart
+    //     title: "Top-5 car brand shares in Finland"
+    //     anchors.fill: parent
+    //     legend.alignment: Qt.AlignBottom
+    //     antialiasing: true
+
+    //     PieSeries {
+    //         id: pieSeries
+    //         PieSlice { label: "Volkswagen"; value: 13.5 }
+    //         PieSlice { label: "Toyota"; value: 10.9 }
+    //         PieSlice { label: "Ford"; value: 8.6 }
+    //         PieSlice { label: "Skoda"; value: 8.2 }
+    //         PieSlice { label: "Volvo"; value: 6.8 }
+    //     }
+    // }
+
+    // Component.onCompleted: {
+    //     // You can also manipulate slices dynamically, like append a slice or set a slice exploded
+    //     othersSlice = pieSeries.append("Others", 52.0);
+    //     pieSeries.find("Volkswagen").exploded = true;
+    // }
 
 }

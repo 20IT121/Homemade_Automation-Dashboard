@@ -1,6 +1,6 @@
 import QtQuick 2.15
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.0
 
 Rectangle{
     id: electricityComponent
@@ -24,7 +24,7 @@ Rectangle{
         }
         height: parent.height * 0.40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/ui/assets/electricityIcon.png"
+        source: "qrc:/ui/assets/electricityIcon_w.png"
     }
 
     Text{
@@ -36,22 +36,23 @@ Rectangle{
             verticalCenter: parent.verticalCenter
         }
         font.pixelSize: parent.width/20
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
     }
 
     MouseArea{
         id: electricityMouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: {
-            electricityText.color = "white"
-            electricityImage.source = "qrc:/ui/assets/electricityIcon_w.png"
-            parent.color = "#23446b"
-        }
-        onExited: {
-            electricityText.color = "#23446b"
-            electricityImage.source = "qrc:/ui/assets/electricityIcon.png"
-            parent.color = "#D3D3D3"
-        }
+        // onEntered: {
+        //     electricityText.color = "white"
+        //     electricityImage.source = "qrc:/ui/assets/electricityIcon_w.png"
+        //     parent.color = "#23446b"
+        // }
+        // onExited: {
+        //     electricityText.color = "#23446b"
+        //     electricityImage.source = "qrc:/ui/assets/electricityIcon.png"
+        //     parent.color = "#D3D3D3"
+        // }
     }
 }

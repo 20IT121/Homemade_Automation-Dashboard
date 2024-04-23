@@ -1,8 +1,8 @@
 import QtQuick 2.15
-import QtQuick.Controls
+import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtMultimedia 6.0
-import QtWebChannel
+import QtWebChannel 6.7
 import "LightsComponent"
 import "MusicComponent"
 import "WifiComponent"

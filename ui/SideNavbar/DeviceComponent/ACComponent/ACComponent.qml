@@ -1,13 +1,13 @@
 import QtQuick 2.15
-import QtQuick.Layouts
-import QtQuick.Controls
+import QtQuick.Layouts 1.0
+import QtQuick.Controls 1.0
 
 Rectangle{
     property string checkedColor : "#e2c8b6"
 
     id: accomponent
-    Layout.fillHeight: true
-    Layout.fillWidth: true
+    width: 200
+    height: 200
 
     radius: 25
     color: root1.checked ? "#e2deb6" : "#908b8b"

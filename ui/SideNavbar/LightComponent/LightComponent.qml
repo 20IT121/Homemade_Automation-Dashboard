@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 // import QtQuickStyle
-import QtQuick.Layouts
+import QtQuick.Layouts 1.0
 
 Rectangle{
 
@@ -25,7 +25,7 @@ Rectangle{
         }
         height: parent.height * 0.40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/ui/assets/lightsIcon.png"
+        source: "qrc:/ui/assets/lightsIcon_w.png"
     }
 
     Text{
@@ -37,7 +37,8 @@ Rectangle{
             verticalCenter: parent.verticalCenter
         }
         font.pixelSize: parent.width/20
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
     }
 
     MouseArea{
@@ -49,16 +50,16 @@ Rectangle{
             loader.setSource(Qt.resolvedUrl("../../pages/LightsPage.qml"))
         }
 
-        onEntered: {
-            lightText.color = "white"
-            lightImage.source = "qrc:/ui/assets/lightsIcon_w.png"
-            parent.color = "#23446b"
-        }
-        onExited: {
-            lightText.color = "#23446b"
-            lightImage.source = "qrc:/ui/assets/lightsIcon.png"
-            parent.color = "#D3D3D3"
-        }
+        // onEntered: {
+        //     lightText.color = "white"
+        //     lightImage.source = "qrc:/ui/assets/lightsIcon_w.png"
+        //     parent.color = "#23446b"
+        // }
+        // onExited: {
+        //     lightText.color = "#23446b"
+        //     lightImage.source = "qrc:/ui/assets/lightsIcon.png"
+        //     parent.color = "#D3D3D3"
+        // }
     }
 
 }

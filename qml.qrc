@@ -82,8 +82,6 @@
         <file>ui/SideNavbar/DeviceComponent/TVComponent/TVComponent.qml</file>
         <file>ui/assets/television.png</file>
         <file>ui/SideNavbar/DeviceComponent/ACComponent/ACComponent.qml</file>
-        <file>ui/assets/ac_off.png</file>
-        <file>ui/assets/ac_on.png</file>
         <file>ui/SideNavbar/DeviceComponent/WifiComponent/WifiComponent.qml</file>
         <file>ui/SideNavbar/DeviceComponent/PrinterComponent/PrinterComponent.qml</file>
         <file>ui/SideNavbar/DeviceComponent/LampComponent/LampComponent.qml</file>
@@ -98,5 +96,26 @@
         <file>ui/pages/LightsPage.qml</file>
         <file>data/temperature.txt.txt</file>
         <file>ui/pages/TemperaturePage.qml</file>
+        <file>ui/assets/Background.jpg</file>
+        <file>ui/assets/Shelf.jpg</file>
+        <file>ui/assets/cloud.png</file>
+        <file>ui/assets/line.png</file>
+        <file>ui/assets/mirrorBg.jpg</file>
+        <file>ui/assets/lightbulb_on.png</file>
+        <file>ui/assets/lightbulb_off.png</file>
+        <file>ui/assets/ac_off.png</file>
+        <file>ui/assets/ac_on.png</file>
+        <file>ui/assets/fan_off.png</file>
+        <file>ui/assets/fan_on.png</file>
+        <file>ui/assets/speaker_off.png</file>
+        <file>ui/assets/speaker_on.png</file>
+        <file>ui/assets/tv_off.png</file>
+        <file>ui/assets/tv_on.png</file>
+        <file>ui/assets/printer_off.png</file>
+        <file>ui/assets/printer_on.png</file>
+        <file>ui/assets/camera_off.png</file>
+        <file>ui/assets/camera_on.png</file>
+        <file>ui/assets/blue_blur.jpg</file>
+        <file>ui/assets/grey_blur.jpg</file>
     </qresource>
 </RCC>

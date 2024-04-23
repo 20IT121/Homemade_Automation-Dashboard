@@ -1,15 +1,17 @@
 import QtQuick 2.15
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.0
 
 
 Rectangle{
     property string checkedColor : "#e2c8b6"
 
-    id: tvcomponent
-    Layout.fillHeight: true
-    Layout.fillWidth: true
 
+    id: tvcomponent
+    // Layout.fillHeight: true
+    // Layout.fillWidth: true
+    width: 200
+    height: 200
     radius: 25
     color: root1.checked ?  "#B6D0E2" : "#908b8b"
     // gradient: Gradient {
@@ -38,18 +40,7 @@ Rectangle{
         font.pixelSize: 15
     }
 
-    Text{
-        text: "Android TV"
-        font.pixelSize: 18
-        font.bold: true
-        color: "#23446b"
-        anchors{
-            top: tvImg.bottom
-            horizontalCenter: parent.horizontalCenter
-            topMargin: 15
-        }
 
-    }
 
     Switch {
         id: root1

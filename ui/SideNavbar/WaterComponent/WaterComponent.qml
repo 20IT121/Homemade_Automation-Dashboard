@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtQuick.Controls
+import QtQuick.Controls 2.15
 import "./Netflix"
 import "./Hotstar"
 import "./Prime"
@@ -267,7 +267,7 @@ Rectangle{
         }
         height: parent.height * 0.40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/ui/assets/waterIcon.png"
+        source: "qrc:/ui/assets/waterIcon_w.png"
     }
 
     Text{
@@ -279,7 +279,8 @@ Rectangle{
             verticalCenter: parent.verticalCenter
         }
         font.pixelSize: parent.width/20
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
     }
 
     MouseArea{
@@ -292,15 +293,15 @@ Rectangle{
             loader.setSource(Qt.resolvedUrl("../../pages/OttPage.qml"))
         }
 
-        onEntered: {
-            waterText.color = "white"
-            waterImage.source = "qrc:/ui/assets/waterIcon_w.png"
-            parent.color = "#23446b"
-        }
-        onExited: {
-            waterText.color = "#23446b"
-            waterImage.source = "qrc:/ui/assets/waterIcon.png"
-            parent.color = "#D3D3D3"
-        }
+        // onEntered: {
+        //     waterText.color = "white"
+        //     waterImage.source = "qrc:/ui/assets/waterIcon_w.png"
+        //     parent.color = "#23446b"
+        // }
+        // onExited: {
+        //     waterText.color = "#23446b"
+        //     waterImage.source = "qrc:/ui/assets/waterIcon.png"
+        //     parent.color = "#D3D3D3"
+        // }
     }
 }

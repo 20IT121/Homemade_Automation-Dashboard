@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtQuick.Controls
+import QtQuick.Controls 2.15
 
 Rectangle{
     id: settingsComponent
@@ -22,7 +22,7 @@ Rectangle{
         }
         height: parent.height * 0.40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/ui/assets/settingIcon.png"
+        source: "qrc:/ui/assets/settingIcon_w.png"
     }
 
     Text{
@@ -34,7 +34,8 @@ Rectangle{
             verticalCenter: parent.verticalCenter
         }
         font.pixelSize: parent.width/20
-        color: "#23446b"
+        // color: "#23446b"
+        color: "white"
     }
 
     MouseArea{
@@ -46,15 +47,15 @@ Rectangle{
             loader.setSource(Qt.resolvedUrl("../../pages/SettingsComponent.qml"))
         }
 
-        onEntered: {
-            settingsText.color = "white"
-            settingsImage.source = "qrc:/ui/assets/settingIcon_w.png"
-            parent.color = "#23446b"
-        }
-        onExited: {
-            settingsText.color = "#23446b"
-            settingsImage.source = "qrc:/ui/assets/settingIcon.png"
-            parent.color = "#D3D3D3"
-        }
+        // onEntered: {
+        //     settingsText.color = "white"
+        //     settingsImage.source = "qrc:/ui/assets/settingIcon_w.png"
+        //     parent.color = "#23446b"
+        // }
+        // onExited: {
+        //     settingsText.color = "#23446b"
+        //     settingsImage.source = "qrc:/ui/assets/settingIcon.png"
+        //     parent.color = "#D3D3D3"
+        // }
     }
 }
