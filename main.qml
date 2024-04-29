@@ -20,6 +20,8 @@ Window {
 
     SideNavbar{
         id: sideNavbar
+        border.width: 2
+        border.color: "white"
     }
 
     Rectangle{

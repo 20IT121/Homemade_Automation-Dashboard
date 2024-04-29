@@ -6,11 +6,15 @@
 #include <QFile>
 #include <QTextStream>
 
+#include <QNetworkInterface>
+#include <iostream>
+using namespace std;
+
 System::System(QObject *parent) :
     m_currentTime ("11:24 am"),
     m_currentDate ("Friday, 13 June, 2003"),
     m_currentTemp (37),
-    m_roomTemp(12)
+    m_roomTemp(37.45)
 {
     // timer = new QTimer(this);
     // connect( &workerThread , SIGNAL(started()) , this , SLOT(started()));
@@ -110,28 +114,45 @@ void System::fetchroomTemp(){
 
     QTextStream in(&file);
     QString numberAsString = in.readAll();
+    numberAsString = numberAsString.trimmed();
+    // qDebug() << numberAsString;
 
     file.close();
 
     // Convert the string to an integer
     bool ok;
-    int temperature = numberAsString.toInt(&ok);
+    double temperature = numberAsString.toDouble(&ok);
+    // qDebug() << "Temp = " << temperature;
     if (!ok) {
-        qDebug() << "Conversion to integer failed";
+        qDebug() << "Conversion to number failed";
         return;
     }
-    setroomTemp(temperature);
+    setRoomTemp(temperature);
 }
 
-int System::roomTemp() const
+double System::roomTemp() const
 {
+    qDebug() << "m_roomTemp = " << m_roomTemp;
     return m_roomTemp;
 }
 
-void System::setroomTemp(int newRoomTemp)
+void System::setRoomTemp(double newRoomTemp)
 {
+    // qDebug() << "New room temp = " << newRoomTemp;
     if (m_roomTemp == newRoomTemp)
         return;
     m_roomTemp = newRoomTemp;
     emit roomTempChanged();
 }
+
+// void getWifiNetworks(){
+//     foreach(QNetworkInterface interface, QNetworkInterface::allInterfaces())
+//     {
+//         if (interface.flags().testFlag(QNetworkInterface::IsUp) && !interface.flags().testFlag(QNetworkInterface::IsLoopBack))
+//             foreach (QNetworkAddressEntry entry, interface.addressEntries())
+//             {
+//                 if ( interface.hardwareAddress() != "00:00:00:00:00:00" && entry.ip().toString().contains(".") && !interface.humanReadableName().contains("VM"))
+//                     items << interface.name() + " "+ entry.ip().toString() +" " + interface.hardwareAddress();
+//             }
+//     }
+// }

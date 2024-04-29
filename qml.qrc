@@ -117,5 +117,17 @@
         <file>ui/assets/camera_on.png</file>
         <file>ui/assets/blue_blur.jpg</file>
         <file>ui/assets/grey_blur.jpg</file>
+        <file>ui/assets/bg_img.png</file>
+        <file>ui/pages/ElectricityPage.qml</file>
+        <file>ui/assets/refrigerator_off.png</file>
+        <file>ui/assets/refrigerator_on.png</file>
+        <file>ui/assets/cleaner_off.png</file>
+        <file>ui/assets/cleaner_on.png</file>
+        <file>ui/assets/doorlock_off.png</file>
+        <file>ui/assets/doorlock_on.png</file>
+        <file>ui/assets/purifier_off.png</file>
+        <file>ui/assets/purifier_on.png</file>
+        <file>ui/assets/suggestion.png</file>
+        <file>ui/assets/Electricity_Component.jpg</file>
     </qresource>
 </RCC>

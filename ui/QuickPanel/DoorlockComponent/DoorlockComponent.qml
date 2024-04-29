@@ -17,7 +17,7 @@ import QtQuick.Controls 2.0
             leftMargin: 5
             topMargin: 30
         }
-        color: "#23446b"
+        color: "#E2DFD2"
         font.pixelSize: 12
     }
 

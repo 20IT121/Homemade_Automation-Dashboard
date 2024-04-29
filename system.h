@@ -11,7 +11,7 @@ class System : public QObject
     Q_PROPERTY(QString currentTime READ currentTime WRITE setcurrentTime NOTIFY currentTimeChanged FINAL)
     Q_PROPERTY(QString currentDate READ currentDate WRITE setcurrentDate NOTIFY currentDateChanged FINAL)
     Q_PROPERTY(int currentTemp READ currentTemp WRITE setcurrentTemp NOTIFY currentTempChanged FINAL)
-    Q_PROPERTY(int roomTemp READ roomTemp WRITE setRoomTemp NOTIFY roomTempChanged FINAL)
+    Q_PROPERTY(double roomTemp READ roomTemp WRITE setRoomTemp NOTIFY roomTempChanged FINAL)
 
 public:
     explicit System(QObject *parent = nullptr);
@@ -26,8 +26,8 @@ public:
     int currentTemp() const;
     void setcurrentTemp(int newCurrentTemp);
 
-    int roomTemp() const;
-    void setroomTemp(int newRoomTemp);
+    double roomTemp() const;
+    void setRoomTemp(double newRoomTemp);
 
 public slots:
     void getcurrentTime();
@@ -47,7 +47,7 @@ private:
     QString m_currentTime;
     QString m_currentDate;
     int m_currentTemp;
-    int m_roomTemp;
+    double m_roomTemp;
 
     // QTimer timer;
     // QThread workerThread;

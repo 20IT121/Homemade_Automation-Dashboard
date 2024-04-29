@@ -78,7 +78,8 @@ Item {
         Flow{
             anchors.fill: parent
             padding: 100
-            spacing: 45
+            topPadding: 150
+            spacing: 60
             flow: Flow.TopToBottom
 
             Rectangle{
@@ -92,8 +93,9 @@ Item {
                 //     leftMargin: 100
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
+
 
                 Switch {
                     id: root_1
@@ -141,6 +143,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bedroom"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -154,7 +181,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -203,6 +230,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb1.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bedroom"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb1.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -216,7 +268,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -265,6 +317,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb2.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bedroom-1"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb2.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -278,7 +355,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -327,6 +404,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb3.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bedroom-2"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb3.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -340,7 +442,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -389,6 +491,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb4.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Living Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb4.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -402,7 +529,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -451,6 +578,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb5.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Living Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb5.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -464,7 +616,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -513,6 +665,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb6.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Kitchen"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb6.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -526,7 +703,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -575,6 +752,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb7.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Study Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb7.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -588,7 +790,7 @@ Item {
                 //     leftMargin: 100
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -637,6 +839,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb8.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Study Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb8.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -650,7 +877,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -699,6 +926,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb9.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Living Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb9.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -712,7 +964,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -761,6 +1013,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb10.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Kitchen"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb10.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -774,7 +1051,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -823,6 +1100,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb11.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Store Room"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb11.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -836,7 +1138,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -885,6 +1187,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb12.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Outdoors"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb12.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -898,7 +1225,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -947,6 +1274,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb13.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bathroom-1"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb13.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -960,7 +1312,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -1009,6 +1361,31 @@ Item {
                         leftMargin: 10
                     }
                 }
+
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb14.bottom
+                        leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Bathroom-2"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb14.bottom
+                        leftMargin: 20
+                        topMargin: 43
+                    }
+                }
             }
 
             Rectangle{
@@ -1022,7 +1399,7 @@ Item {
                 //     leftMargin: 30
                 //     topMargin: 100
                 // }
-                opacity: 0.6
+                opacity: 0.8
                 color: "black"
 
                 Switch {
@@ -1071,69 +1448,33 @@ Item {
                         leftMargin: 10
                     }
                 }
-            }
 
-            Rectangle{
-                id: smartlamp16
-                width: 120
-                height: 120
-                radius: 10
-                // anchors{
-                //     left: smartlamp6.right
-                //     top: parent.top
-                //     leftMargin: 30
-                //     topMargin: 100
-                // }
-                opacity: 0.6
-                color: "black"
-
-                Switch {
-                    id: root_17
+                Text{
+                    text: "Smart Lamp"
+                    font.pixelSize: 17
+                    font.bold: true
+                    color: "white"
                     anchors{
-                        right: smartlamp16.right
-                        // rightMargin: -3
-                        top: smartlamp16.top
-                        topMargin: 10
-                    }
-
-                    indicator: Rectangle {
-
-                        width: 40
-                        height: 20
-                        radius: height / 2
-                        color: root_17.checked ? checkedColor : "#AAB7C6"
-                        border.width: 2
-                        border.color: "black"
-
-                        Rectangle {
-                            id: randomID16
-                            x: root_17.checked ? parent.width - width - 2 : 1
-                            width: parent.width/2
-                            height: parent.height
-                            radius: height / 2
-                            anchors.verticalCenter: parent.verticalCenter
-                            color: "white"
-                            border.color: "#D5D5D5"
-
-
-                            Behavior on x {
-                                NumberAnimation { duration: 200 }
-                            }
-                        }
-                    }
-                }
-
-                Image {
-                    id: bulb16
-                    source: root_17.checked ? "qrc:/ui/assets/lightbulb_on.png" : "qrc:/ui/assets/lightbulb_off.png"
-                    anchors{
-                        top: parent.top
-                        topMargin: 10
                         left: parent.left
+                        top: bulb15.bottom
                         leftMargin: 10
+                        topMargin: 10
+                    }
+                }
+
+                Text{
+                    text: "Indoor-Stairs"
+                    font.bold: true
+                    color: "white"
+                    anchors{
+                        left: parent.left
+                        top: bulb15.bottom
+                        leftMargin: 20
+                        topMargin: 43
                     }
                 }
             }
+
         }
 
 

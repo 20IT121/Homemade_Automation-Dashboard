@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
  // custom code for displaying current time
     engine.rootContext()->setContextProperty("systemHandler",m_systemHandler);
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if(engine.rootObjects().isEmpty())
-        return -1;
+    // engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    // if(engine.rootObjects().isEmpty())
+    //     return -1;
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(

@@ -12,6 +12,8 @@ import "../SideNavbar/SettingsComponent"
 
 Rectangle{
     id: sideNavbarComponent
+    border.width: 2
+    border.color: "white"
     anchors{
         top: parent.top
         bottom: parent.bottom
@@ -19,6 +21,7 @@ Rectangle{
     }
     width: parent.width * 0.2
     color: "#D3D3D3"
+
     Image {
         source: "qrc:/ui/assets/grey_blur.jpg"
         anchors.fill: parent

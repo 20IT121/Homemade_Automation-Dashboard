@@ -44,6 +44,10 @@ Rectangle{
         id: electricityMouseArea
         anchors.fill: parent
         hoverEnabled: true
+        onClicked:{
+            // stackView.push(Qt.resolvedUrl("../../pages/OttPage.qml"))
+            loader.setSource(Qt.resolvedUrl("../../pages/ElectricityPage.qml"))
+        }
         // onEntered: {
         //     electricityText.color = "white"
         //     electricityImage.source = "qrc:/ui/assets/electricityIcon_w.png"

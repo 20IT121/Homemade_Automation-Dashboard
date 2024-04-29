@@ -1,8 +1,11 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.0
+import Qt5Compat.GraphicalEffects
 
 Rectangle{
+    property color checkedColor : "#088F8F"
+
     id: temperature
     property bool hover : false
 
@@ -10,12 +13,32 @@ Rectangle{
     Layout.fillWidth: true
 
     radius: 10
-    color: "white"
+    color: "transparent"
+    Image {
+        id: bg
+        source: "qrc:/ui/assets/bg_img.png"
+        anchors.fill: parent
+        // fillMode: Image.PreserveAspectFit
+    }
+
+    DropShadow {
+        anchors.fill: bg
+        horizontalOffset: 0
+        verticalOffset: 8
+        radius: 8
+        spread: 0
+        samples: 10
+        color: "#000000"
+        source: bg
+    }
+
+    // border.width: 2
+    // border.color: "white"
 
     Text {
         id: temperatureText
         text: "Temperature"
-        color: "#23446b"
+        color: "white"
         font.bold: true
         font.pixelSize: 15
         anchors.left : parent.left
@@ -54,7 +77,7 @@ Rectangle{
         repeat: false
         onTriggered: {
             parent.scale = hover ? 1.2 : 1.0
-            color = "#efefef"
+            // color = "#efefef"
         }
     }
 
@@ -70,7 +93,7 @@ Rectangle{
             hover = false
             hoverTimer.stop()
             parent.scale =  1.0
-            color = "white"
+            // color = "white"
         }
     }
 
@@ -118,7 +141,7 @@ Rectangle{
     Text{
         id: autoRoomTemperature
         property color checkedColor : "#23446b"
-        color: "#657C97"
+        color: "#581845"
         text: "Auto Room Temperature System"
         anchors.top: frostImage.bottom
         anchors.left: parent.left
@@ -165,4 +188,6 @@ Rectangle{
             }
         }
     }
+
+    // opacity: 0.9
 }

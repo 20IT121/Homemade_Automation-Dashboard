@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import Qt5Compat.GraphicalEffects
 
 Rectangle{
     id: topNavbar
@@ -107,6 +108,12 @@ Rectangle{
         source: "qrc:/ui/assets/app icon png.png"
     }
 
+    ColorOverlay {
+               anchors.fill: nxonLogo
+               source: nxonLogo
+               color: "#088F8F"
+        }
+
     Image{
         id: signOutImage
         anchors{
@@ -133,6 +140,12 @@ Rectangle{
             }
         }
     }
+
+    ColorOverlay {
+               anchors.fill: signOutImage
+               source: signOutImage
+               color: "white"
+        }
 
     // Connections{
     //     target: m_datetimeHandler

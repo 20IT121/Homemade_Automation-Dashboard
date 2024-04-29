@@ -4,9 +4,11 @@ import QtCharts 2.15
 // import QtGraphicalEffects 1.12
 
 Item {
-    id: temperatureComponent
     Rectangle {
-        anchors.fill: parent
+        id: temperatureComponent
+        implicitHeight: mainWindow.height
+        implicitWidth: mainWindow.width * 4/5
+
         Image{
             anchors.fill: parent
             source: "qrc:/ui/assets/blue_blur.jpg"
@@ -37,7 +39,7 @@ Item {
 
         Text {
             id: currentTemp
-            text: qsTr("21 C")
+            text: qsTr("36 C")
             color: "#097DB9"
             anchors{
                 right: parent.right
@@ -591,5 +593,114 @@ Item {
             }
         }
 
-    }
-}
+        Flow{
+            anchors{
+                left: temperatureComponent.left
+                top: line1.bottom
+                bottom: temperatureComponent.bottom
+                right: temperatureComponent.right
+                leftMargin: 100
+                topMargin: 75
+            }
+            spacing: 75
+            // flow: Flow.TopToBottom
+
+
+            Rectangle{
+
+                radius: 10
+                width: 230
+                height: 35
+                color: "#4FACFE"
+                border.color: "white"
+                opacity: 0.5
+
+                Text {
+                    text: qsTr("Living Room: 30.6 C")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 30
+                    color: "white"
+                    font.pixelSize: 18
+                }
+            }
+
+            Rectangle{
+
+                radius: 10
+                width: 230
+                height: 35
+                color: "#4FACFE"
+                border.color: "white"
+                opacity: 0.5
+
+                Text {
+                    text: qsTr("BedRoom-1:   31.2 C")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 30
+                    color: "white"
+                    font.pixelSize: 18
+                }
+            }
+
+            Rectangle{
+
+                radius: 10
+                width: 230
+                height: 35
+                color: "#4FACFE"
+                border.color: "white"
+                opacity: 0.5
+
+                Text {
+                    text: qsTr("BedRoom-2:   30.33 C")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 30
+                    color: "white"
+                    font.pixelSize: 18
+                }
+            }
+
+            Rectangle{
+
+                radius: 10
+                width: 230
+                height: 35
+                color: "#4FACFE"
+                border.color: "white"
+                opacity: 0.5
+
+                Text {
+                    text: qsTr("Kitchen:   33 C")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 30
+                    color: "white"
+                    font.pixelSize: 18
+                }
+            }
+
+            Rectangle{
+
+                radius: 10
+                width: 230
+                height: 35
+                color: "#4FACFE"
+                border.color: "white"
+                opacity: 0.5
+
+                Text {
+                    text: qsTr("Study Room:    32.5 C")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 30
+                    color: "white"
+                    font.pixelSize: 18
+                }
+            }
+        } // flow
+
+    } // rectangle
+} // item

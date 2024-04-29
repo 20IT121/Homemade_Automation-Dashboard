@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtMultimedia 6.0
 import QtWebChannel 6.7
+import Qt5Compat.GraphicalEffects
 import "LightsComponent"
 import "MusicComponent"
 import "WifiComponent"
@@ -10,7 +11,7 @@ import "CctvComponent"
 import "DoorlockComponent"
 
 Rectangle{
-    property color checkedColor : "#23446b"
+    property color checkedColor : "#088F8F"
     id: quickpanel
     anchors{
         right: parent.right
@@ -18,7 +19,23 @@ Rectangle{
         top: notification.bottom
         topMargin: 25
     }
-    color: "white"
+    color: "transparent"
+    Image {
+        id: bg
+        source: "qrc:/ui/assets/bg_img.png"
+        anchors.fill: parent
+        // fillMode: Image.PreserveAspectFit
+    }
+    DropShadow {
+            anchors.fill: bg
+            horizontalOffset: 0
+            verticalOffset: 8
+            radius: 8
+            spread: 0
+            samples: 17
+            color: "#000000"
+            source: bg
+    }
     width: 250
     height: 300
     radius: 10
@@ -28,7 +45,7 @@ Rectangle{
         text: "Quick Panel"
         font.bold: true
         font.pixelSize: 20
-        color: "#23446b"
+        color: "white"
         anchors{
             left: parent.left
             top: parent.top
@@ -39,7 +56,7 @@ Rectangle{
 
     Image {
         id: lightsImage
-        source: "qrc:/ui/assets/lightsIcon.png"
+        source: "qrc:/ui/assets/lightsIcon_w.png"
         anchors{
             top: quickpanelText.bottom
             left: parent.left
@@ -101,6 +118,12 @@ Rectangle{
             leftMargin: 20
             topMargin: 20
         }
+    }
+
+    ColorOverlay {
+           anchors.fill: musicImage
+           source: musicImage
+           color: "white"
     }
 
     MusicComponent{
@@ -214,7 +237,7 @@ Rectangle{
 
     Image {
         id: wifiImage
-        source: "qrc:/ui/assets/wiFiIcon.png"
+        source: "qrc:/ui/assets/wiFiIcon_w.png"
         anchors{
             top: musicImage.bottom
             left: parent.left
@@ -269,7 +292,7 @@ Rectangle{
 
     Image {
         id: cctvImage
-        source: "qrc:/ui/assets/securityIcon.png"
+        source: "qrc:/ui/assets/securityIcon_w.png"
         anchors{
             top: wifiImage.bottom
             left: parent.left
@@ -362,6 +385,12 @@ Rectangle{
             leftMargin: 20
             topMargin: 20
         }
+    }
+
+    ColorOverlay {
+           anchors.fill: doorUnlockImage
+           source: doorUnlockImage
+           color: "white"
     }
 
     DoorlockComponent{
